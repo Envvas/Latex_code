@@ -1,5 +1,17 @@
 \documentclass{article}
 \usepackage{graphicx} 
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+\usepackage{parskip} 
+\usepackage{xcolor}
+\usepackage{longtable}
+\geometry{left=5cm, 
+right=5cm,
+textwidth = 8cm}
 
 \title{Abgabe 1 für Computergestützte Methoden}
 \author{Gruppe 69, Toni und Enver }
@@ -9,16 +21,11 @@
 
 
 
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage[ngerman]{babel}
-\usepackage[margin=1in]{geometry} 
-\usepackage{hyperref}
-\usepackage{amsmath}
-\usepackage{graphicx}
-\usepackage{parskip} 
-\usepackage{xcolor}
-\usepackage{longtable}
+
+ 
+
+
+
 
 
 \newcommand{\redboxlink}[2]{\textsuperscript{\hyperlink{#1}{\fbox{\textcolor{red}{#2}}}}}
@@ -43,7 +50,7 @@ Toni Tornede(MatrNu.:4352117)}
 \section{Der zentrale Grenzwertsatz}
 \label{sec:zgs}
 
-Der zentrale Grenzwertsatz (ZGS) ist ein fundamentales Resultat der Wahrscheinlichkeitstheorie, das die Verteilung von Summen unabhängiger, identisch verteilter (i.i.d.) Zufallsvariablen (ZV) beschreibt. Er besagt, dass unter bestimmten Voraussetzungen die Summe einer großen Anzahl solcher ZV annähernd normalverteilt ist, unabhängig von der Verteilung der einzelnen ZV. Dies ist besonders nützlich, da die Normalverteilung gut untersucht und mathematisch handhabbar ist.
+Der zentrale Grenzwertsatz (ZGS) ist ein fundamentales Resultat der Wahrscheinlichkeitstheorie, das die Verteilung von Summen unabhängiger, identisch verteilter \textit{(i.i.d.)} Zufallsvariablen (ZV) beschreibt. Er besagt, dass unter bestimmten Voraussetzungen die Summe einer großen Anzahl solcher ZV annähernd normalverteilt ist, unabhängig von der Verteilung der einzelnen ZV. Dies ist besonders nützlich, da die Normalverteilung gut untersucht und mathematisch handhabbar ist.
 
 \subsection{Aussage}
 Sei $X_1, X_2, \dots, X_n$ eine Folge von i.i.d. Zufallsvariablen mit dem Erwartungswert $\mu = E(X_i)$ und der Varianz $\sigma^2 = \text{Var}(X_i)$, wobei $0 < \sigma^2 < \infty$ gilt. Dann konvergiert die standardisierte Summe $Z_n$ dieser Zufallsvariablen für $n \to \infty$ in Verteilung gegen eine \textbf{Standardnormalverteilung:}\redboxlink{zgs1}{1} 
@@ -57,7 +64,7 @@ Das bedeutet, dass für große $n$ die Summe der Zufallsvariablen näherungsweis
 
 \subsection{Erklärung der Standardisierung}
 \label{zgs1}
-Um die Summe der Zufallsvariablen in eine Standardnormalverteilung zu transformieren, subtrahiert man den Erwartungswert $n\mu$ und teilt durch die Standardabweichung $\sigma \sqrt{n}$. Dies führt zu der \textbf{obigen Formel} \hyperlink{zgs1}{\fbox{\textcolor{red}{(1)}}}. Die \textbf{Darstellung} \hyperlink{zgs2}{\fbox{\textcolor{red}{(2)}}} ist für $n \to \infty$ nicht wohldefiniert.
+Um die Summe der Zufallsvariablen in eine Standardnormalverteilung zu transformieren, subtrahiert man den Erwartungswert $n\mu$ und teilt durch die Standardabweichung $\sigma \sqrt{n}$. Dies führt zu der obigen Formel \hyperlink{zgs1}{\fbox{\textcolor{red}{(1)}}}. Die Darstellung \hyperlink{zgs2}{\fbox{\textcolor{red}{(2)}}} ist für $n \to \infty$ nicht wohldefiniert.
 
 \subsection{Anwendungen}
 \begin{itemize}
@@ -119,18 +126,14 @@ Die Daten bieten eine Grundlage für mehrere Forschungsfragen, wie z. B.:
 \label{sec:tabellenkalkulation}
 
 
-Zuerst wurde die CSV-Datei in der Tabellenkalkulationssoftware Excel geladen. Da die Datei als CSV vorlag, wurde als Trennzeichen das Komma verwendet. Zusätzlich wurden Textbegrenzer wie Anführungszeichen berücksichtigt.
+Zuerst wurde die CSV-Datei in der Tabellenkalkulationssoftware Excel geladen. 
 
-Die Spalten wurden auf korrekte Datentypen überprüft:
-\begin{itemize}
-    \item \textbf{Numerische Werte} (z. B. Count, Precipitation, Windspeed): Wurden als Zahlen erkannt.
-    \item \textbf{Datumsspalten} (z. B. Date): Automatisch in Datumsformate konvertiert.
-    \item \textbf{Textspalten} (z. B. Station): Blieben unverändert.
-\end{itemize}
+Wir habe auf daten abrufen -> importieren aus .csv Datei geklickt und so die Datei (bike\_sharing\_data\_(with\_NAs)) importiert. Dann haben wir als Trennzeichen Komma ausgewählt und als Datentypenerkennung „Basierend auf gesamtes Dokument“ ausgewählt, damit die Daten im richtigen Format bleiben. 
+
+Um jetzt nicht alle 36tsd. Einträge zu haben, sondern nur die unserer Gruppe, haben wir unter group nach unserer Nummer (69) gefiltert. 
 
 Mithilfe der Filterfunktion wurde die Bedingung „Group = 69“ angewandt, sodass nur die Daten dieser Gruppe angezeigt wurden. Es wurde sichergestellt, dass die ausgewählten Daten ausschließlich die Station „North Moore St \& Greenwich St“ umfassen, da wir mit den uns zugeteilten Daten arbeiten mussten.
 
-Zuletzt ist noch wichtig zu erwähnen, dass die Werte mit NA oder -1 in den relevanten Spalten als ungültig identifiziert wurden und damit auch ausgeschlossen wurden. Die Temperaturen wurden in der Tabelle in Fahrenheit aufgelistet, und die Datumswerte wurden im Format TT.MM.JJJJ dargestellt.
 
 
 \newpage 
@@ -237,11 +240,13 @@ Zusätzlich können die restlichen Tabellen mit den folgenden Befehlen importier
 \begin{verbatim}
 .mode csv
 .separator ;
-.import stationenneu.csv station
+.import stationen.csv station
 .import wetter.csv wetter
 .import datum.csv datum
 .import verleih.csv verleih
 \end{verbatim}
+
+Wir haben den Datensatz in unserer Tabellenkalkulation in Excel bearbeitet und vorbereitet. Dabei sind wir so vorgegangen, dass wir z.b. für die Tabelle station nur die stationsnamen hatten und doppelte namen durch einen Excelbefehl gelöscht haben und eine erstellte Spalte für die stationsID von 1-100 hatten. Diese Datei haben wir anschließend als .csv abgespeichert. Um die Datei zu importieren mussten wir den separator ; auswählen, weil unsere csv Dateien dies als Trennung hatten. 
 
 \newpage 
 \newpage 
@@ -271,9 +276,7 @@ from wetter;
 
 
 \section*{Literatur}
-\begin{itemize}
-    \item \hypertarget{litref}{[1]} Achim Klenke. \textit{Wahrscheinlichkeitstheorie}. Springer, 3. Auflage, 2013.
-    \item \textbf{Repository-Link:} \url{https://github.com/Envvas/Latex_code}
-\end{itemize}
+ \hypertarget{litref}{[1]} Achim Klenke. \textit{Wahrscheinlichkeitstheorie}. Springer, 3. Auflage, 2013.
+    \textbf{Repository-Link:} \url{https://github.com/Envvas/Latex_code}
 
 \end{document}
