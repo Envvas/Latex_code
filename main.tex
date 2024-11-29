@@ -118,59 +118,46 @@ Die Daten bieten eine Grundlage für mehrere Forschungsfragen, wie z. B.:
 \subsection{Tabellenkalkulation}
 \label{sec:tabellenkalkulation}
 
-\textbf{Importprozess:} \\
 
-Um die Daten in eine Tabellenkalkulation zu importieren, wurde folgender Ablauf durchgeführt:
+Zuerst wurde die CSV-Datei in der Tabellenkalkulationssoftware Excel geladen. Da die Datei als CSV vorlag, wurde als Trennzeichen das Komma verwendet. Zusätzlich wurden Textbegrenzer wie Anführungszeichen berücksichtigt.
+
+Die Spalten wurden auf korrekte Datentypen überprüft:
 \begin{itemize}
-    \item \textbf{Öffnen der CSV-Datei:} Die Datei wurde in einer Tabellenkalkulationssoftware (z. B. Excel oder LibreOffice Calc) geladen.
-    \item \textbf{Festlegen der Trennzeichen:} Da die Datei als CSV vorlag, wurde als Trennzeichen das Komma verwendet. Zusätzlich wurden Textbegrenzer wie Anführungszeichen berücksichtigt.
-    \item \textbf{Spaltenzuweisung und Typenprüfung:} 
-    Die Spalten wurden auf korrekte Datentypen überprüft:
-    \begin{itemize}
-        \item \textbf{Numerische Werte} (z. B. Count, Precipitation, Windspeed): Wurden als Zahlen erkannt.
-        \item \textbf{Datumsspalten} (z. B. Date): Automatisch in Datumsformate konvertiert.
-        \item \textbf{Textspalten} (z. B. Station): Blieben unverändert.
-        \item \textbf{Fehlende Werte:} NAs oder -1 wurden automatisch als Leerzellen dargestellt.
-    \end{itemize}
+    \item \textbf{Numerische Werte} (z. B. Count, Precipitation, Windspeed): Wurden als Zahlen erkannt.
+    \item \textbf{Datumsspalten} (z. B. Date): Automatisch in Datumsformate konvertiert.
+    \item \textbf{Textspalten} (z. B. Station): Blieben unverändert.
 \end{itemize}
 
-\textbf{Filterung auf Gruppe 69:}
-\begin{itemize}
-    \item Mithilfe der Filterfunktion wurde die Bedingung „Group = 69“ angewandt, sodass nur die Daten dieser Gruppe angezeigt wurden.
-    \item Es wurde sichergestellt, dass die ausgewählten Daten ausschließlich die Station „North Moore St \& Greenwich St“ umfassen.
-\end{itemize}
+Mithilfe der Filterfunktion wurde die Bedingung „Group = 69“ angewandt, sodass nur die Daten dieser Gruppe angezeigt wurden. Es wurde sichergestellt, dass die ausgewählten Daten ausschließlich die Station „North Moore St \& Greenwich St“ umfassen, da wir mit den uns zugeteilten Daten arbeiten mussten.
 
-\textbf{Bereinigungen:}
-\begin{itemize}
-    \item \textbf{Fehlende Werte:} Werte mit NA oder -1 wurden in den relevanten Spalten als ungültig identifiziert und entweder ausgeschlossen oder durch Standardwerte (z. B. Durchschnitt oder Median) ersetzt.
-    \item \textbf{Einheitliche Formate:} Datumswerte wurden im Format TT.MM.JJJJ dargestellt. Temperaturen wurden bei Bedarf von Fahrenheit in Celsius umgerechnet.
-\end{itemize}
+Zuletzt ist noch wichtig zu erwähnen, dass die Werte mit NA oder -1 in den relevanten Spalten als ungültig identifiziert wurden und damit auch ausgeschlossen wurden. Die Temperaturen wurden in der Tabelle in Fahrenheit aufgelistet, und die Datumswerte wurden im Format TT.MM.JJJJ dargestellt.
+
 
 \newpage 
 
 \subsection{Berechnung der höchsten mittleren Temperatur}
 \label{sec:berechnung-temperatur}
 
-\textbf{Berechnung der höchsten mittleren Temperatur:}
+
 
 Die höchste mittlere Temperatur für Gruppe 69 beträgt 28.3 Grad Celsius, was 83 Fahrenheit entspricht. Der Ablauf der Berechnung war wie folgt:
 \begin{itemize}
-    \item \textbf{Import des Datensatzes:} Der Datensatz wurde zunächst in eine Tabellenkalkulation importiert und die relevanten Daten der Gruppe 69 wurden mithilfe eines Filters isoliert.
-    \item \textbf{Identifikation der Spalte „average temperature“:} Die mittlere Temperatur befand sich in der Spalte „average temperature“. Für die Gruppe 69 wurden die Werte dieser Spalte extrahiert.
-    \item \textbf{Methoden zur Bestimmung des höchsten Wertes:}
+    \item  Der Datensatz wurde zunächst in eine Tabellenkalkulation importiert und die relevanten Daten der Gruppe 69 wurden mithilfe eines Filters isoliert.
+    \item Die mittlere Temperatur befand sich in der Spalte „average temperature“. Da wir nur die mittlere Temperatur für die Aufgabenstellung benötigen ignorieren wir min- und maxtemperatur.
+    \item 
     \begin{itemize}
-        \item \textbf{Option 1 – Filter und manuelles Überprüfen:} Mithilfe der Filterfunktion wurde die Spalte gefiltert, sodass nur die Daten der Gruppe 69 angezeigt wurden. Anschließend wurde der höchste Wert aus der Liste ermittelt.
-        \item \textbf{Option 2 – Verwendung der MAX-Funktion:} Alternativ wurde die Formel \texttt{=MAX(Bereich)} auf die entsprechenden Zellen angewendet. Die MAX-Funktion gibt automatisch den höchsten Wert in der Spalte zurück.
+        \item Für die bestimmung der höchsten mittleren Temperatur haben wir 2 Möglichkeiten gehabt. Zuerst wurde mithilfe der Filterfunktion die Spalte gefiltert, sodass nur die Daten der Gruppe 69 angezeigt wurden. Anschließend wurde der höchste Wert aus der Liste ermittelt.
+        \item  Alternativ wurde die Formel \texttt{=MAX(J24784:J25148)} auf die entsprechenden Zellen angewendet. Die MAX-Funktion gibt automatisch den höchsten Wert in der Spalte zurück.
     \end{itemize}
-    \item \textbf{Umrechnung in Grad Celsius:} Das Ergebnis, 83 Fahrenheit, wurde mithilfe der Formel $C = (F - 32) \times \frac{5}{9}$ in Celsius umgerechnet:
+    \item  Das Ergebnis, 83 Fahrenheit, wurde mithilfe der Formel $C = (F - 32) \times \frac{5}{9}$ in Celsius umgerechnet:
     \[
     C = (83 - 32) \times \frac{5}{9} = 28.3 \, \text{Grad Celsius}.
     \]
 \end{itemize}
 
-\textbf{Ergebnis:}
 
-Die höchste mittlere Temperatur für die Station „North Moore St \& Greenwich St“ der Gruppe 69 beträgt 28.3 Grad Celsius.
+
+Nachdem wir alle Schritte durchgeführt haben kommen wir zum Ergebnis, dass die höchste mittlere Temperatur für die Station „North Moore St \& Greenwich St“ der Gruppe 69 28.3 Grad Celsius beträgt.
 
 \newpage 
 \newpage 
